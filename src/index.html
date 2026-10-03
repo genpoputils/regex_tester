@@ -1,55 +1,76 @@
 <!doctype html>
 <html lang="en" class="dark">
-  <head>
-    <meta charset="utf-8" />
-    <title>Regex Tester Pro — Online Regular Expression Debugger & Explainer</title>
-    <base href="/" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Free, fast, client-side Regular Expression Tester and Explainer. Real-time syntax highlighting, group capture inspection, 20+ presets, and zero-latency RegExp execution." />
-    <meta name="keywords" content="regex, regular expressions, regex tester, regex debugger, regex explainer, javascript regex, regex cheat sheet, pattern matcher" />
-    <meta name="theme-color" content="#09090b" />
 
-    <!-- OpenGraph / Social -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Regex Tester Pro — Online Regular Expression Debugger & Explainer" />
-    <meta property="og:description" content="Test, debug and understand regular expressions instantly with real-time match highlighting and token explanations." />
-    <meta property="og:image" content="/assets/og-image.png" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Regex Tester Pro — Online Regular Expression Debugger & Explainer" />
-    <meta name="twitter:description" content="Test, debug and understand regular expressions instantly with real-time match highlighting and token explanations." />
-    <meta name="twitter:image" content="/assets/og-image.png" />
+<head>
+  <meta charset="utf-8" />
+  <title>Regex Tester Pro — Online Regular Expression Debugger & Explainer</title>
+  <base href="/" />
 
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <link rel="manifest" href="manifest.json" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GJMPSVE40B"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-    <!-- Google Fonts Preconnect -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet" />
+    gtag('config', 'G-GJMPSVE40B');
+  </script>
 
-    <!-- Anti-flash script for theme -->
-    <script>
-      (function() {
-        try {
-          var saved = localStorage.getItem('regex_tester_theme');
-          var isDark = true;
-          if (saved === 'light') {
-            isDark = false;
-          } else if (saved === 'system') {
-            isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-          }
-          if (isDark) {
-            document.documentElement.classList.add('dark');
-            document.documentElement.classList.remove('light');
-          } else {
-            document.documentElement.classList.remove('dark');
-            document.documentElement.classList.add('light');
-          }
-        } catch (e) {}
-      })();
-    </script>
-  </head>
-  <body class="bg-zinc-50 dark:bg-[#09090b] text-zinc-900 dark:text-zinc-100 min-h-screen selection:bg-indigo-500/20 selection:text-indigo-400">
-    <app-root></app-root>
-  </body>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="Free, fast, client-side Regular Expression Tester and Explainer. Real-time syntax highlighting, group capture inspection, 20+ presets, and zero-latency RegExp execution." />
+  <meta name="keywords"
+    content="regex, regular expressions, regex tester, regex debugger, regex explainer, javascript regex, regex cheat sheet, pattern matcher" />
+  <meta name="theme-color" content="#09090b" />
+
+  <!-- OpenGraph / Social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Regex Tester Pro — Online Regular Expression Debugger & Explainer" />
+  <meta property="og:description"
+    content="Test, debug and understand regular expressions instantly with real-time match highlighting and token explanations." />
+  <meta property="og:image" content="/assets/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Regex Tester Pro — Online Regular Expression Debugger & Explainer" />
+  <meta name="twitter:description"
+    content="Test, debug and understand regular expressions instantly with real-time match highlighting and token explanations." />
+  <meta name="twitter:image" content="/assets/og-image.png" />
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="manifest" href="manifest.json" />
+
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap"
+    rel="stylesheet" />
+
+  <!-- Anti-flash script for theme -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('regex_tester_theme');
+        var isDark = true;
+        if (saved === 'light') {
+          isDark = false;
+        } else if (saved === 'system') {
+          isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        }
+        if (isDark) {
+          document.documentElement.classList.add('dark');
+          document.documentElement.classList.remove('light');
+        } else {
+          document.documentElement.classList.remove('dark');
+          document.documentElement.classList.add('light');
+        }
+      } catch (e) { }
+    })();
+  </script>
+</head>
+
+<body
+  class="bg-zinc-50 dark:bg-[#09090b] text-zinc-900 dark:text-zinc-100 min-h-screen selection:bg-indigo-500/20 selection:text-indigo-400">
+  <app-root></app-root>
+</body>
+
 </html>
