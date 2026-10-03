@@ -87,10 +87,12 @@ import { RouterModule } from '@angular/router';
       <!-- Bottom bar -->
       <div class="max-w-7xl mx-auto pt-6 border-t border-zinc-200 dark:border-zinc-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
         <p>© 2026 Regex Tester Pro. Open source developer tool. Free forever.</p>
-        <div class="flex items-center gap-4">
-          <a routerLink="/cheat-sheet" class="hover:underline">Cheat Sheet</a>
+        <div class="flex items-center flex-wrap gap-4">
+          <a routerLink="/cheat-sheet" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Cheat Sheet</a>
           <span class="text-zinc-400 dark:text-zinc-600">•</span>
-          <span>Privacy Guaranteed: No telemetry collected</span>
+          <a routerLink="/privacy-policy" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Privacy Policy</a>
+          <span class="text-zinc-400 dark:text-zinc-600">•</span>
+          <a routerLink="/terms" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Terms of Service</a>
         </div>
       </div>
     </footer>

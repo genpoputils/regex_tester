@@ -2,6 +2,7 @@ import { Component, inject, signal, computed, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { AdBannerComponent } from '../../components/ad-banner/ad-banner.component';
 import { CHEAT_SHEET_DATA } from '../../utils/cheat-sheet-data';
 import { CheatSheetSection } from '../../models/regex.models';
 import { RegexService } from '../../services/regex.service';
@@ -11,7 +12,7 @@ import { SeoService } from '../../services/seo.service';
 @Component({
   selector: 'app-cheat-sheet-page',
   standalone: true,
-  imports: [CommonModule, RouterModule, FormsModule],
+  imports: [CommonModule, RouterModule, FormsModule, AdBannerComponent],
   template: `
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-10">
       
@@ -146,6 +147,9 @@ import { SeoService } from '../../services/seo.service';
           </section>
         }
       </div>
+
+      <!-- Google AdSense Ad Slot -->
+      <app-ad-banner></app-ad-banner>
 
     </div>
   `,

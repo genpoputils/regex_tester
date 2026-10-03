@@ -11,6 +11,7 @@ import { CheatSheetDrawerComponent } from '../../components/cheat-sheet-drawer/c
 import { SettingsModalComponent } from '../../components/settings-modal/settings-modal.component';
 import { ShareModalComponent } from '../../components/share-modal/share-modal.component';
 import { ShortcutsModalComponent } from '../../components/shortcuts-modal/shortcuts-modal.component';
+import { AdBannerComponent } from '../../components/ad-banner/ad-banner.component';
 import { RegexService } from '../../services/regex.service';
 import { SeoService } from '../../services/seo.service';
 import { REGEX_PRESETS } from '../../utils/regex-presets';
@@ -32,6 +33,7 @@ import { PresetItem } from '../../models/regex.models';
     SettingsModalComponent,
     ShareModalComponent,
     ShortcutsModalComponent,
+    AdBannerComponent,
   ],
   template: `
     <main class="w-full">
@@ -100,6 +102,9 @@ import { PresetItem } from '../../models/regex.models';
           </div>
 
         </div>
+
+        <!-- Google AdSense Ad Slot -->
+        <app-ad-banner></app-ad-banner>
 
       </section>
 

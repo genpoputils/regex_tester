@@ -13,6 +13,20 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'privacy-policy',
+    loadComponent: () =>
+      import('./pages/privacy-policy/privacy-policy.component').then(
+        (m) => m.PrivacyPolicyComponent
+      ),
+  },
+  {
+    path: 'terms',
+    loadComponent: () =>
+      import('./pages/terms/terms.component').then(
+        (m) => m.TermsComponent
+      ),
+  },
+  {
     path: '**',
     redirectTo: '',
   },
