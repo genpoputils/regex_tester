@@ -93,9 +93,18 @@ import { RouterModule } from '@angular/router';
           <a routerLink="/privacy-policy" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Privacy Policy</a>
           <span class="text-zinc-400 dark:text-zinc-600">•</span>
           <a routerLink="/terms" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Terms of Service</a>
+          <span class="text-zinc-400 dark:text-zinc-600">•</span>
+          <button type="button" (click)="resetCookieConsent()" class="hover:text-zinc-900 dark:hover:text-white transition-colors cursor-pointer underline">Cookie Settings</button>
         </div>
       </div>
     </footer>
   `,
 })
-export class FooterComponent {}
+export class FooterComponent {
+  public resetCookieConsent(): void {
+    try {
+      localStorage.removeItem('regex_cookie_consent');
+      window.location.reload();
+    } catch (e) {}
+  }
+}

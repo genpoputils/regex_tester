@@ -6,15 +6,45 @@
   <title>Regex Tester Pro — Online Regular Expression Debugger & Explainer</title>
   <base href="/" />
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GJMPSVE40B"></script>
+  <!-- Google Consent Mode v2 (EU/EEA & GDPR Compliance) -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
 
+    // Read stored consent if previously decided
+    var userConsent = null;
+    try {
+      userConsent = localStorage.getItem('regex_cookie_consent');
+    } catch (e) {}
+
+    if (userConsent === 'granted') {
+      gtag('consent', 'default', {
+        'ad_storage': 'granted',
+        'ad_user_data': 'granted',
+        'ad_personalization': 'granted',
+        'analytics_storage': 'granted',
+        'functionality_storage': 'granted',
+        'personalization_storage': 'granted',
+        'security_storage': 'granted'
+      });
+    } else {
+      // Default to denied for EU/EEA users until explicit user consent
+      gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'analytics_storage': 'denied',
+        'functionality_storage': 'granted',
+        'personalization_storage': 'granted',
+        'security_storage': 'granted',
+        'wait_for_update': 500
+      });
+    }
+
+    gtag('js', new Date());
     gtag('config', 'G-GJMPSVE40B');
   </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GJMPSVE40B"></script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description"

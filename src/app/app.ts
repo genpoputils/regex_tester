@@ -8,6 +8,7 @@ import { PresetLibraryModalComponent } from './components/preset-library/preset-
 import { ShareModalComponent } from './components/share-modal/share-modal.component';
 import { SettingsModalComponent } from './components/settings-modal/settings-modal.component';
 import { ShortcutsModalComponent } from './components/shortcuts-modal/shortcuts-modal.component';
+import { CookieConsentComponent } from './components/cookie-consent/cookie-consent.component';
 import { ThemeService } from './services/theme.service';
 import { ShortcutsService } from './services/shortcuts.service';
 
@@ -24,6 +25,7 @@ import { ShortcutsService } from './services/shortcuts.service';
     ShareModalComponent,
     SettingsModalComponent,
     ShortcutsModalComponent,
+    CookieConsentComponent,
   ],
   templateUrl: './app.html',
   styleUrl: './app.css',
