@@ -17,7 +17,12 @@
       userConsent = localStorage.getItem('regex_cookie_consent');
     } catch (e) {}
 
-    if (userConsent === 'granted') {
+    // Detect Google Tag Assistant or debug session
+    var isDebug = window.location.search.indexOf('gtm_debug') !== -1 ||
+                  (document.referrer && document.referrer.indexOf('tagassistant.google.com') !== -1) ||
+                  (typeof window.name === 'string' && window.name.indexOf('TAG_ASSISTANT') !== -1);
+
+    if (userConsent === 'granted' || isDebug) {
       gtag('consent', 'default', {
         'ad_storage': 'granted',
         'ad_user_data': 'granted',
@@ -28,21 +33,25 @@
         'security_storage': 'granted'
       });
     } else {
-      // Default to denied for EU/EEA users until explicit user consent
+      // Default to denied for EU/EEA/UK users until explicit user consent
       gtag('consent', 'default', {
         'ad_storage': 'denied',
         'ad_user_data': 'denied',
         'ad_personalization': 'denied',
         'analytics_storage': 'denied',
+        'region': ['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'IS', 'LI', 'NO', 'GB'],
         'functionality_storage': 'granted',
         'personalization_storage': 'granted',
-        'security_storage': 'granted',
-        'wait_for_update': 500
+        'security_storage': 'granted'
       });
     }
 
     gtag('js', new Date());
-    gtag('config', 'G-GJMPSVE40B');
+    if (isDebug) {
+      gtag('config', 'G-GJMPSVE40B', { 'debug_mode': true });
+    } else {
+      gtag('config', 'G-GJMPSVE40B');
+    }
   </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-GJMPSVE40B"></script>
 
