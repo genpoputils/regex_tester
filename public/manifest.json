@@ -1,7 +1,7 @@
 {
-  "name": "Regex Tester Pro — Online Regular Expression Debugger",
-  "short_name": "RegexPro",
-  "description": "Test, debug and understand regular expressions instantly with real-time match highlighting and token explanations.",
+  "name": "Regex Tester – Test, Learn & Master Regular Expressions | GenPopUtils",
+  "short_name": "Regex Tester",
+  "description": "Free online regex tester with instant pattern matching, regex presets, syntax explanations, and a comprehensive regular expression cheat sheet.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

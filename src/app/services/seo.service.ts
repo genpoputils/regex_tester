@@ -21,13 +21,17 @@ export class SeoService {
   private readonly doc = inject(DOCUMENT);
   private readonly platformId = inject(PLATFORM_ID);
 
-  private readonly DEFAULT_TITLE = 'Regex Tester Pro — Online Regular Expression Debugger & Explainer';
+  private readonly DEFAULT_TITLE = 'Regex Tester – Test, Learn & Master Regular Expressions | GenPopUtils';
   private readonly DEFAULT_DESC =
-    'The ultimate free, client-side Regular Expression Tester and Explainer. Real-time syntax highlighting, group capture inspection, 20+ presets, and zero-latency RegExp execution.';
+    'Free online regex tester with instant pattern matching, regex presets, syntax explanations, and a comprehensive regular expression cheat sheet.';
   private readonly BASE_URL = 'https://regex.genpoputils.com';
 
   public updateSeo(config: Partial<SeoConfig>): void {
-    const fullTitle = config.title ? `${config.title} | Regex Tester Pro` : this.DEFAULT_TITLE;
+    const fullTitle = config.title
+      ? config.title.includes('GenPopUtils')
+        ? config.title
+        : `${config.title} | GenPopUtils`
+      : this.DEFAULT_TITLE;
     const desc = config.description || this.DEFAULT_DESC;
     const url = config.canonicalUrl || (isPlatformBrowser(this.platformId) ? window.location.href : `${this.BASE_URL}/`);
     const ogImage = config.ogImage || `${this.BASE_URL}/og-image.png`;
@@ -47,7 +51,7 @@ export class SeoService {
     this.meta.updateTag({ property: 'og:url', content: url });
     this.meta.updateTag({ property: 'og:type', content: type });
     this.meta.updateTag({ property: 'og:image', content: ogImage });
-    this.meta.updateTag({ property: 'og:site_name', content: 'Regex Tester Pro' });
+    this.meta.updateTag({ property: 'og:site_name', content: 'GenPopUtils' });
 
     // Twitter Card
     this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });

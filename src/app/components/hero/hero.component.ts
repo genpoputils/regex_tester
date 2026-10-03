@@ -26,8 +26,8 @@ import { RouterModule } from '@angular/router';
         </h1>
 
         <!-- Subtitle -->
-        <p class="text-lg sm:text-xl text-zinc-600 dark:text-zinc-300 max-w-2xl mx-auto leading-relaxed mb-8">
-          Test, debug and understand regular expressions instantly.
+        <p class="text-lg sm:text-xl text-zinc-600 dark:text-zinc-300 max-w-3xl mx-auto leading-relaxed mb-8">
+          Test regular expressions, explore presets, learn regex syntax, and use our handy regex cheat sheet.
         </p>
 
         <!-- Action Buttons -->

@@ -152,9 +152,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.seoService.updateSeo({
-      title: 'Regex Tester Pro — Online Regular Expression Debugger & Explainer',
+      title: 'Regex Tester – Test, Learn & Master Regular Expressions | GenPopUtils',
       description:
-        'Fast, private, client-side Regular Expression tester and AST explainer. Real-time match highlighting, capture group extraction, and 20+ production presets.',
+        'Free online regex tester with instant pattern matching, regex presets, syntax explanations, and a comprehensive regular expression cheat sheet.',
       canonicalUrl: 'https://regex.genpoputils.com/',
     });
   }
