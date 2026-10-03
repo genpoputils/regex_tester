@@ -173,7 +173,7 @@ regex_tester/
 
 ### 1. Clone & Install
 ```bash
-git clone https://github.com/prasun1060/regex_tester.git
+git clone https://github.com/genpoputils/regex_tester.git
 cd regex_tester
 npm install
 ```
