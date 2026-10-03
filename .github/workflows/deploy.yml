@@ -41,7 +41,13 @@ jobs:
         uses: actions/configure-pages@v4
 
       - name: Build Production App
-        run: npm run build -- --base-href ${{ steps.pages.outputs.base_path }}/
+        run: |
+          BASE_PATH="${{ steps.pages.outputs.base_path }}"
+          if [ -z "$BASE_PATH" ] || [ "$BASE_PATH" = "/" ] || [ -f "public/CNAME" ]; then
+            npm run build -- --base-href /
+          else
+            npm run build -- --base-href "${BASE_PATH}/"
+          fi
 
       - name: Create 404 SPA fallback for GitHub Pages
         run: cp dist/regex-tester/browser/index.html dist/regex-tester/browser/404.html || true

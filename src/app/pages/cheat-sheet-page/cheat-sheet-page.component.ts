@@ -193,7 +193,7 @@ export class CheatSheetPageComponent implements OnInit {
       title: 'Regex Cheat Sheet — Modern ECMAScript Regular Expression Reference',
       description:
         'Complete interactive Regex Cheat Sheet: anchors, character classes, lookaheads, lookbehinds, quantifiers, capture groups, and JavaScript RegExp flags.',
-      canonicalUrl: 'https://genpoputils.github.io/regex_tester/cheat-sheet',
+      canonicalUrl: 'https://regex.genpoputils.com/cheat-sheet',
       type: 'article',
     });
   }

@@ -78,7 +78,7 @@ export class TermsComponent implements OnInit {
     this.seo.updateSeo({
       title: 'Terms of Service',
       description: 'Terms of Service and usage conditions for Regex Tester Pro.',
-      canonicalUrl: 'https://genpoputils.github.io/regex_tester/terms',
+      canonicalUrl: 'https://regex.genpoputils.com/terms',
     });
   }
 }

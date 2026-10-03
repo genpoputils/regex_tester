@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://genpoputils.github.io/regex_tester/</loc>
+    <loc>https://regex.genpoputils.com/</loc>
     <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://genpoputils.github.io/regex_tester/cheat-sheet</loc>
+    <loc>https://regex.genpoputils.com/cheat-sheet</loc>
     <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://genpoputils.github.io/regex_tester/privacy-policy</loc>
+    <loc>https://regex.genpoputils.com/privacy-policy</loc>
     <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://genpoputils.github.io/regex_tester/terms</loc>
+    <loc>https://regex.genpoputils.com/terms</loc>
     <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

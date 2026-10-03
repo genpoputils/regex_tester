@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://genpoputils.github.io/regex_tester/sitemap.xml
+Sitemap: https://regex.genpoputils.com/sitemap.xml

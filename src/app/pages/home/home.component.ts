@@ -155,7 +155,7 @@ export class HomeComponent implements OnInit {
       title: 'Regex Tester Pro — Online Regular Expression Debugger & Explainer',
       description:
         'Fast, private, client-side Regular Expression tester and AST explainer. Real-time match highlighting, capture group extraction, and 20+ production presets.',
-      canonicalUrl: 'https://genpoputils.github.io/regex_tester/',
+      canonicalUrl: 'https://regex.genpoputils.com/',
     });
   }
 

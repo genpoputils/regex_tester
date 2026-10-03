@@ -24,7 +24,7 @@ export class SeoService {
   private readonly DEFAULT_TITLE = 'Regex Tester Pro — Online Regular Expression Debugger & Explainer';
   private readonly DEFAULT_DESC =
     'The ultimate free, client-side Regular Expression Tester and Explainer. Real-time syntax highlighting, group capture inspection, 20+ presets, and zero-latency RegExp execution.';
-  private readonly BASE_URL = 'https://genpoputils.github.io/regex_tester';
+  private readonly BASE_URL = 'https://regex.genpoputils.com';
 
   public updateSeo(config: Partial<SeoConfig>): void {
     const fullTitle = config.title ? `${config.title} | Regex Tester Pro` : this.DEFAULT_TITLE;
