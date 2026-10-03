@@ -1,0 +1,34 @@
+<div class="min-h-screen flex flex-col bg-zinc-50 dark:bg-[#09090b] text-zinc-900 dark:text-zinc-100 transition-colors">
+  <!-- Top Navigation -->
+  <app-navbar
+    (openPresetsModal)="isPresetsModalOpen.set(true)"
+    (openShareModal)="isShareModalOpen.set(true)"
+    (openSettingsModal)="isSettingsModalOpen.set(true)"
+  ></app-navbar>
+
+  <!-- Main Routed Content -->
+  <div class="flex-1">
+    <router-outlet></router-outlet>
+  </div>
+
+  <!-- Footer -->
+  <app-footer></app-footer>
+
+  <!-- Global Toast Feedback -->
+  <app-toast></app-toast>
+
+  <!-- Global Modals -->
+  @if (isPresetsModalOpen()) {
+    <app-preset-library-modal (closeModal)="isPresetsModalOpen.set(false)"></app-preset-library-modal>
+  }
+
+  @if (isShareModalOpen()) {
+    <app-share-modal (closeModal)="isShareModalOpen.set(false)"></app-share-modal>
+  }
+
+  @if (isSettingsModalOpen()) {
+    <app-settings-modal (closeModal)="isSettingsModalOpen.set(false)"></app-settings-modal>
+  }
+
+  <app-shortcuts-modal></app-shortcuts-modal>
+</div>
