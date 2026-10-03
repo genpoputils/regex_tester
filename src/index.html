@@ -6,54 +6,55 @@
   <title>Regex Tester Pro — Online Regular Expression Debugger & Explainer</title>
   <base href="/" />
 
-  <!-- Google Consent Mode v2 (EU/EEA & GDPR Compliance) -->
+  <!-- Google tag (gtag.js) & Consent Mode v2 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GJMPSVE40B"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
 
-    // Read stored consent if previously decided
-    var userConsent = null;
+    // 1. Global Baseline Default: Granted for general visitors and Tag Assistant debugging
+    gtag('consent', 'default', {
+      'ad_storage': 'granted',
+      'ad_user_data': 'granted',
+      'ad_personalization': 'granted',
+      'analytics_storage': 'granted',
+      'functionality_storage': 'granted',
+      'personalization_storage': 'granted',
+      'security_storage': 'granted'
+    });
+
+    // 2. GDPR Compliance: Default to denied for EEA and UK visitors until explicit consent
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied',
+      'region': ['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'IS', 'LI', 'NO', 'GB']
+    });
+
+    // 3. Restore saved user preference if previously decided
     try {
-      userConsent = localStorage.getItem('regex_cookie_consent');
+      var savedConsent = localStorage.getItem('regex_cookie_consent');
+      if (savedConsent === 'granted') {
+        gtag('consent', 'update', {
+          'ad_storage': 'granted',
+          'ad_user_data': 'granted',
+          'ad_personalization': 'granted',
+          'analytics_storage': 'granted'
+        });
+      } else if (savedConsent === 'denied') {
+        gtag('consent', 'update', {
+          'ad_storage': 'denied',
+          'ad_user_data': 'denied',
+          'ad_personalization': 'denied',
+          'analytics_storage': 'denied'
+        });
+      }
     } catch (e) {}
 
-    // Detect Google Tag Assistant or debug session
-    var isDebug = window.location.search.indexOf('gtm_debug') !== -1 ||
-                  (document.referrer && document.referrer.indexOf('tagassistant.google.com') !== -1) ||
-                  (typeof window.name === 'string' && window.name.indexOf('TAG_ASSISTANT') !== -1);
-
-    if (userConsent === 'granted' || isDebug) {
-      gtag('consent', 'default', {
-        'ad_storage': 'granted',
-        'ad_user_data': 'granted',
-        'ad_personalization': 'granted',
-        'analytics_storage': 'granted',
-        'functionality_storage': 'granted',
-        'personalization_storage': 'granted',
-        'security_storage': 'granted'
-      });
-    } else {
-      // Default to denied for EU/EEA/UK users until explicit user consent
-      gtag('consent', 'default', {
-        'ad_storage': 'denied',
-        'ad_user_data': 'denied',
-        'ad_personalization': 'denied',
-        'analytics_storage': 'denied',
-        'region': ['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'IS', 'LI', 'NO', 'GB'],
-        'functionality_storage': 'granted',
-        'personalization_storage': 'granted',
-        'security_storage': 'granted'
-      });
-    }
-
     gtag('js', new Date());
-    if (isDebug) {
-      gtag('config', 'G-GJMPSVE40B', { 'debug_mode': true });
-    } else {
-      gtag('config', 'G-GJMPSVE40B');
-    }
+    gtag('config', 'G-GJMPSVE40B');
   </script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GJMPSVE40B"></script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description"
