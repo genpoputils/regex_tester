@@ -43,6 +43,11 @@ export class ThemeService {
     }
   }
 
+  public toggleTheme(): void {
+    const next: ThemeMode = this.isDark() ? 'light' : 'dark';
+    this.setTheme(next);
+  }
+
   private applyTheme(mode: ThemeMode): void {
     if (!isPlatformBrowser(this.platformId)) return;
 
@@ -57,15 +62,24 @@ export class ThemeService {
 
     this.isDark.set(darkMode);
     const root = document.documentElement;
+    const body = document.body;
 
     if (darkMode) {
       root.classList.add('dark');
       root.classList.remove('light');
       root.style.colorScheme = 'dark';
+      if (body) {
+        body.classList.add('dark');
+        body.classList.remove('light');
+      }
     } else {
       root.classList.remove('dark');
       root.classList.add('light');
       root.style.colorScheme = 'light';
+      if (body) {
+        body.classList.remove('dark');
+        body.classList.add('light');
+      }
     }
   }
 }

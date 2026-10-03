@@ -1,4 +1,4 @@
-import { Injectable, signal, inject } from '@angular/core';
+import { Injectable, signal, effect, inject } from '@angular/core';
 import { RegexSettings } from '../models/regex.models';
 import { StorageService } from './storage.service';
 import { ThemeService, ThemeMode } from './theme.service';
@@ -23,12 +23,20 @@ export class SettingsService {
 
   constructor() {
     const saved = this.storage.loadSettings();
+    const currentTheme = this.themeService.currentTheme();
     if (saved) {
-      this.settings.set({ ...this.defaultSettings, ...saved });
-      if (saved.theme) {
-        this.themeService.setTheme(saved.theme);
-      }
+      this.settings.set({ ...this.defaultSettings, ...saved, theme: currentTheme });
+    } else {
+      this.settings.update((s) => ({ ...s, theme: currentTheme }));
     }
+
+    effect(() => {
+      const activeTheme = this.themeService.currentTheme();
+      if (this.settings().theme !== activeTheme) {
+        this.settings.update((s) => ({ ...s, theme: activeTheme }));
+        this.storage.saveSettings(this.settings());
+      }
+    });
   }
 
   public updateSetting<K extends keyof RegexSettings>(key: K, value: RegexSettings[K]): void {

@@ -101,35 +101,35 @@ import { ExportService } from '../../services/export.service';
             </svg>
           </button>
 
-          <!-- Theme Toggle -->
-          <div class="relative flex items-center bg-zinc-100 dark:bg-zinc-800/80 rounded-lg p-0.5 border border-zinc-200 dark:border-zinc-700/60">
+          <!-- Theme Toggle (Day / Night) -->
+          <div class="relative flex items-center bg-zinc-100 dark:bg-zinc-800/90 rounded-lg p-0.5 border border-zinc-200 dark:border-zinc-700/60 shadow-inner">
             <button
               type="button"
               (click)="themeService.setTheme('light')"
-              [class.bg-white]="themeService.currentTheme() === 'light'"
-              [class.dark:bg-zinc-700]="themeService.currentTheme() === 'light'"
-              [class.text-zinc-900]="themeService.currentTheme() === 'light'"
-              [class.shadow-sm]="themeService.currentTheme() === 'light'"
-              class="p-1.5 rounded-md text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-all"
-              title="Light theme"
-              aria-label="Light theme"
+              [class.bg-white]="!themeService.isDark()"
+              [class.text-amber-500]="!themeService.isDark()"
+              [class.shadow-sm]="!themeService.isDark()"
+              [class.text-zinc-400]="themeService.isDark()"
+              class="p-1.5 rounded-md hover:text-zinc-900 dark:hover:text-white transition-all flex items-center justify-center cursor-pointer"
+              title="Day Mode (Light)"
+              aria-label="Switch to Day Mode"
             >
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
               </svg>
             </button>
             <button
               type="button"
               (click)="themeService.setTheme('dark')"
-              [class.bg-zinc-900]="themeService.currentTheme() === 'dark'"
-              [class.dark:bg-zinc-700]="themeService.currentTheme() === 'dark'"
-              [class.text-white]="themeService.currentTheme() === 'dark'"
-              [class.shadow-sm]="themeService.currentTheme() === 'dark'"
-              class="p-1.5 rounded-md text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-all"
-              title="Dark theme"
-              aria-label="Dark theme"
+              [class.bg-zinc-700]="themeService.isDark()"
+              [class.text-indigo-400]="themeService.isDark()"
+              [class.shadow-sm]="themeService.isDark()"
+              [class.text-zinc-500]="!themeService.isDark()"
+              class="p-1.5 rounded-md hover:text-zinc-900 dark:hover:text-white transition-all flex items-center justify-center cursor-pointer"
+              title="Night Mode (Dark)"
+              aria-label="Switch to Night Mode"
             >
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
               </svg>
             </button>

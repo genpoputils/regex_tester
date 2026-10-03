@@ -81,4 +81,20 @@ test.describe('Regex Tester Pro E2E Suite', () => {
     await closeBtn.click();
     await expect(page.locator('#cheat-drawer-title')).not.toBeVisible();
   });
+
+  test('should transform between day and night modes', async ({ page }) => {
+    const html = page.locator('html');
+
+    // Click Day mode (Light)
+    const dayBtn = page.getByRole('button', { name: 'Switch to Day Mode' });
+    await dayBtn.click();
+    await expect(html).not.toHaveClass(/dark/);
+    await expect(html).toHaveClass(/light/);
+
+    // Click Night mode (Dark)
+    const nightBtn = page.getByRole('button', { name: 'Switch to Night Mode' });
+    await nightBtn.click();
+    await expect(html).toHaveClass(/dark/);
+    await expect(html).not.toHaveClass(/light/);
+  });
 });
