@@ -36,11 +36,15 @@ jobs:
       - name: Run Tests
         run: npm test -- --watch=false
 
-      - name: Build Production App
-        run: npm run build
-
       - name: Setup GitHub Pages
+        id: pages
         uses: actions/configure-pages@v4
+
+      - name: Build Production App
+        run: npm run build -- --base-href ${{ steps.pages.outputs.base_path }}/
+
+      - name: Create 404 SPA fallback for GitHub Pages
+        run: cp dist/regex-tester/browser/index.html dist/regex-tester/browser/404.html || true
 
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
