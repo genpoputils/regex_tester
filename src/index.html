@@ -6,53 +6,13 @@
   <title>Regex Tester Pro — Online Regular Expression Debugger & Explainer</title>
   <base href="/" />
 
-  <!-- Google tag (gtag.js) & Consent Mode v2 -->
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-GJMPSVE40B"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
-
-    // 1. Global Baseline Default: Granted for general visitors and Tag Assistant debugging
-    gtag('consent', 'default', {
-      'ad_storage': 'granted',
-      'ad_user_data': 'granted',
-      'ad_personalization': 'granted',
-      'analytics_storage': 'granted',
-      'functionality_storage': 'granted',
-      'personalization_storage': 'granted',
-      'security_storage': 'granted'
-    });
-
-    // 2. GDPR Compliance: Default to denied for EEA and UK visitors until explicit consent
-    gtag('consent', 'default', {
-      'ad_storage': 'denied',
-      'ad_user_data': 'denied',
-      'ad_personalization': 'denied',
-      'analytics_storage': 'denied',
-      'region': ['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'IS', 'LI', 'NO', 'GB']
-    });
-
-    // 3. Restore saved user preference if previously decided
-    try {
-      var savedConsent = localStorage.getItem('regex_cookie_consent');
-      if (savedConsent === 'granted') {
-        gtag('consent', 'update', {
-          'ad_storage': 'granted',
-          'ad_user_data': 'granted',
-          'ad_personalization': 'granted',
-          'analytics_storage': 'granted'
-        });
-      } else if (savedConsent === 'denied') {
-        gtag('consent', 'update', {
-          'ad_storage': 'denied',
-          'ad_user_data': 'denied',
-          'ad_personalization': 'denied',
-          'analytics_storage': 'denied'
-        });
-      }
-    } catch (e) {}
-
     gtag('js', new Date());
+
     gtag('config', 'G-GJMPSVE40B');
   </script>
 
