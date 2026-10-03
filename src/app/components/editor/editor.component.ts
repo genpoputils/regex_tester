@@ -3,21 +3,15 @@ import {
   ElementRef,
   ViewChild,
   inject,
-  PLATFORM_ID,
   effect,
-  signal,
-  AfterViewInit,
-  OnDestroy,
 } from '@angular/core';
-import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RegexService } from '../../services/regex.service';
 import { ExportService } from '../../services/export.service';
 import { ShortcutsService } from '../../services/shortcuts.service';
 import { SettingsService } from '../../services/settings.service';
 import { ThemeService } from '../../services/theme.service';
-
-declare const window: any;
 
 @Component({
   selector: 'app-editor',
@@ -71,7 +65,7 @@ declare const window: any;
           /
         </span>
 
-        <!-- Pattern Input (Supports Monaco container or high-speed responsive input) -->
+        <!-- Pattern Input -->
         <div class="flex-1 relative flex items-center">
           <input
             #patternInput
@@ -85,10 +79,6 @@ declare const window: any;
             autocapitalize="off"
             aria-label="Regular Expression Pattern"
           />
-
-          @if (isMonacoLoaded()) {
-            <div #monacoContainer class="absolute inset-0 hidden"></div>
-          }
         </div>
 
         <!-- Closing slash & Flags -->
@@ -125,20 +115,14 @@ declare const window: any;
     </div>
   `,
 })
-export class EditorComponent implements AfterViewInit, OnDestroy {
+export class EditorComponent {
   @ViewChild('patternInput') patternInput!: ElementRef<HTMLInputElement>;
-  @ViewChild('monacoContainer') monacoContainer?: ElementRef<HTMLDivElement>;
 
   public readonly regexService = inject(RegexService);
   public readonly exportService = inject(ExportService);
   public readonly shortcutsService = inject(ShortcutsService);
   public readonly settingsService = inject(SettingsService);
   public readonly themeService = inject(ThemeService);
-
-  private readonly platformId = inject(PLATFORM_ID);
-  public readonly isMonacoLoaded = signal<boolean>(false);
-
-  private monacoEditorInstance: any = null;
 
   constructor() {
     // Listen for Focus Pattern shortcut (Ctrl + /)
@@ -151,49 +135,7 @@ export class EditorComponent implements AfterViewInit, OnDestroy {
     });
   }
 
-  ngAfterViewInit(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      this.initMonacoLoader();
-    }
-  }
-
-  ngOnDestroy(): void {
-    if (this.monacoEditorInstance) {
-      this.monacoEditorInstance.dispose();
-    }
-  }
-
   public onPatternChange(newPattern: string): void {
     this.regexService.setPattern(newPattern);
-  }
-
-  /**
-   * Initializes Monaco Editor dynamically when supported in client browser.
-   */
-  private initMonacoLoader(): void {
-    if (!isPlatformBrowser(this.platformId)) return;
-
-    if (window.monaco) {
-      this.isMonacoLoaded.set(true);
-      return;
-    }
-
-    // Load Monaco loader script from local assets
-    const script = document.createElement('script');
-    script.src = '/assets/monaco/vs/loader.js';
-    script.async = true;
-    script.onload = () => {
-      if (window.require) {
-        window.require.config({ paths: { vs: '/assets/monaco/vs' } });
-        window.require(['vs/editor/editor.main'], () => {
-          this.isMonacoLoaded.set(true);
-        });
-      }
-    };
-    script.onerror = () => {
-      // Gracefully continue with high-speed accessible input
-      this.isMonacoLoaded.set(false);
-    };
-    document.body.appendChild(script);
   }
 }
