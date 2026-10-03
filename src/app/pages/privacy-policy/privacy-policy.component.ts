@@ -105,7 +105,7 @@ export class PrivacyPolicyComponent implements OnInit {
     this.seo.updateSeo({
       title: 'Privacy Policy',
       description: 'Learn how Regex Tester Pro respects user privacy with 100% client-side regular expression execution and transparency on cookies.',
-      canonicalUrl: 'https://regex-tester.pro/privacy-policy',
+      canonicalUrl: 'https://genpoputils.github.io/regex_tester/privacy-policy',
     });
   }
 }

@@ -142,7 +142,7 @@ Non-JWT string: invalid.token.value`,
     pattern: '\\[([^\\]]+)\\]\\((https?:\\/\\/[^\\s\\)]+)(?:\\s+"([^"]+)")?\\)',
     flags: 'gm',
     testString: `Check [Angular Signals](https://angular.dev/guide/signals "Angular Documentation") for reactive state!
-Also read our [Regex Cheat Sheet](https://regex-tester.pro/cheat-sheet) guide.`,
+Also read our [Regex Cheat Sheet](https://genpoputils.github.io/regex_tester/cheat-sheet) guide.`,
     tags: ['markdown', 'link', 'syntax', 'url'],
   },
   {

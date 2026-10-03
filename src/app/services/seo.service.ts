@@ -24,13 +24,13 @@ export class SeoService {
   private readonly DEFAULT_TITLE = 'Regex Tester Pro — Online Regular Expression Debugger & Explainer';
   private readonly DEFAULT_DESC =
     'The ultimate free, client-side Regular Expression Tester and Explainer. Real-time syntax highlighting, group capture inspection, 20+ presets, and zero-latency RegExp execution.';
-  private readonly BASE_URL = 'https://regex-tester.pro';
+  private readonly BASE_URL = 'https://genpoputils.github.io/regex_tester';
 
   public updateSeo(config: Partial<SeoConfig>): void {
     const fullTitle = config.title ? `${config.title} | Regex Tester Pro` : this.DEFAULT_TITLE;
     const desc = config.description || this.DEFAULT_DESC;
-    const url = config.canonicalUrl || (isPlatformBrowser(this.platformId) ? window.location.href : this.BASE_URL);
-    const ogImage = config.ogImage || `${this.BASE_URL}/assets/og-image.png`;
+    const url = config.canonicalUrl || (isPlatformBrowser(this.platformId) ? window.location.href : `${this.BASE_URL}/`);
+    const ogImage = config.ogImage || `${this.BASE_URL}/og-image.png`;
     const type = config.type || 'website';
 
     this.titleService.setTitle(fullTitle);
